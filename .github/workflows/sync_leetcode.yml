@@ -16,13 +16,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Clone sync tool
+        run: |
+          git clone https://github.com/akarsh1995/leetcode-sync.git
+          cd leetcode-sync
+          npm install
 
-      - name: Run LeetCode Sync
-        run: npx -y github:qinghaoh/leetcode-sync --dir my-submissions
+      - name: Run sync
+        run: |
+          cd leetcode-sync
+          node index.js --dir ../my-submissions
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
