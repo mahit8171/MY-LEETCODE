@@ -6,18 +6,26 @@ on:
     - cron: "0 5 * * *"
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync Submissions
-        uses: joshcai/leetcode-sync@master
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          github-token: ${{ github.token }}
-          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
-          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          destination-folder: my-submissions
-          verbose: true
+          node-version: 20
+
+      - name: Install leetcode-sync
+        run: npm install -g leetcode-sync
+
+      - name: Sync submissions
+        run: leetcode-sync --dir my-submissions
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
