@@ -21,11 +21,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install leetcode-sync
-        run: npm install -g leetcode-sync
-
-      - name: Sync submissions
-        run: leetcode-sync --dir my-submissions
+      - name: Run LeetCode Sync
+        run: npx -y github:qinghaoh/leetcode-sync --dir my-submissions
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
