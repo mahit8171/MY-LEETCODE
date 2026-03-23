@@ -1,36 +1,20 @@
 name: Sync Leetcode
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # Allows manual trigger from the "Actions" tab
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "0 8 * * 6"   # Automatically runs every Saturday at 8:00 AM
 
 jobs:
-  sync:
+  build:
     runs-on: ubuntu-latest
 
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4   # update to @v5 when available
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Sync
+        uses: joshcai/leetcode-sync@v1.7
         with:
-          node-version: "24"
-
-      - name: Clone sync tool
-        run: |
-          git clone https://github.com/akarsh1995/leetcode-sync.git
-          cd leetcode-sync
-          npm install
-
-      - name: Run sync
-        run: |
-          cd leetcode-sync
-          node index.js --dir ../my-submissions
-        env:
-          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
-          CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          github-token: ${{ github.token }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          destination-folder: my-submissions # Optional
+          verbose: true
