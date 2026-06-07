@@ -26,18 +26,6 @@
 
 ---
 
-## 📊 Progress at a Glance
-
-<div align="center">
-
-| 🟢 Easy | 🟡 Medium | 🔴 Hard | 📁 Total |
-|:-------:|:---------:|:-------:|:--------:|
-| ![Easy](https://img.shields.io/badge/80-4CAF50?style=flat-square) | ![Medium](https://img.shields.io/badge/130-FFC107?style=flat-square) | ![Hard](https://img.shields.io/badge/40-F44336?style=flat-square) | ![Total](https://img.shields.io/badge/250-2196F3?style=flat-square) |
-
-</div>
-
----
-
 Each file includes:
 - ✅ Problem statement (brief)
 - ✅ Approach explanation
