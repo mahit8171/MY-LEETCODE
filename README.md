@@ -16,7 +16,7 @@
 [![Problems Solved](https://img.shields.io/badge/Problems%20Solved-250%2B-brightgreen?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/Mohti_shakya)
 [![Language](https://img.shields.io/badge/Language-Python%20%7C%20Java%20%7C%20C%2B%2B-blue?style=for-the-badge)](https://github.com/mahit8171)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/leetcode-solutions?style=for-the-badge&color=orange)](https://github.com/mahit8171/leetcode-solutions/stargazers)
+[![Stars](https://img.shields.io/github/stars/Mohti_shakya/leetcode-solutions?style=for-the-badge&color=orange)](https://github.com/mahit8171/leetcode-solutions/stargazers)
 
 <a href="https://leetcode.com/Mohti_shakya">
   <img src="https://leetcard.jacoblin.cool/Mohti_shakya?theme=dark&font=Karma&ext=heatmap" alt="LeetCode Stats"/>
